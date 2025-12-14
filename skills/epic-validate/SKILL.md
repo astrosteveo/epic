@@ -1,6 +1,12 @@
 ---
 name: epic-validate
 description: Run comprehensive project validation including tests, linting, type checking, and build verification. Use after implementation to verify code quality. Triggers on /epic:validate or when user wants to run tests, check types, lint code, verify build, or validate changes before committing.
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Glob
+  - Bash(npm:*, npx:*, cargo:*, go:*, python:*, pytest:*, ruff:*, mypy:*, make:*, tsc:*)
 ---
 
 # Epic Validate

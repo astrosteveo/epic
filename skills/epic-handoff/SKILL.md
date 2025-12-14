@@ -1,6 +1,12 @@
 ---
 name: epic-handoff
 description: Create structured handoff documents for session transfer, capturing current workflow context in under 200 lines. Use when ending a session, switching tasks, or at major phase completion (context exceeds 60%). Creates timestamped documents in .claude/handoffs/[slug]/YYYY-MM-DD_HH-MM-SS_[description].md with task status, git state, critical references, learnings, and next steps.
+allowed-tools:
+  - Read
+  - Write
+  - Glob
+  - Bash(git:status, git:log, git:rev-parse, git:branch)
+  - AskUserQuestion
 ---
 
 # Epic Handoff

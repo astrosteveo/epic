@@ -1,6 +1,14 @@
 ---
 name: epic-implement
 description: Execute implementation plan phase by phase with verification after each. Use after /epic:plan to write code following the approved plan. Triggers on /epic:implement or when user wants to start coding, execute the plan, implement changes, or continue implementation from a previous session.
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Glob
+  - Grep
+  - Bash(npm:*, npx:*, cargo:*, go:*, python:*, pytest:*, make:*, git:status, git:diff)
+  - AskUserQuestion
 ---
 
 # Epic Implement

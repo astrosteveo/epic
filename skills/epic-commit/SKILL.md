@@ -1,6 +1,12 @@
 ---
 name: epic-commit
 description: Create documented commits from workflow artifacts using conventional commit format. Triggers when user runs /epic:commit or requests to commit changes with workflow documentation. Analyzes plan.md, state.md, and validation.md to draft comprehensive commit messages, ensures pre-commit validation, and never commits without explicit user confirmation.
+allowed-tools:
+  - Read
+  - Glob
+  - Edit
+  - Bash(git:status, git:diff, git:add, git:commit, git:log, git:show)
+  - AskUserQuestion
 ---
 
 # Epic Commit

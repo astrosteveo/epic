@@ -28,20 +28,31 @@ This is a Claude Code marketplace plugin implementing the "Frequent Intentional 
 │   ├── implementation-plan.md    # Plan structure template
 │   ├── state.md                  # Workflow state + progress tracker
 │   └── handoff.md                # Handoff document template
-└── skills/                       # Interactive skills
+└── skills/                       # Workflow skills (contain full logic)
+    ├── epic-explore/SKILL.md     # Research phase logic
+    ├── epic-plan/SKILL.md        # Planning phase logic
+    ├── epic-implement/SKILL.md   # Implementation phase logic
+    ├── epic-validate/SKILL.md    # Validation phase logic
+    ├── epic-commit/SKILL.md      # Commit phase logic
+    ├── epic-handoff/SKILL.md     # Handoff creation logic
+    └── epic-resume/SKILL.md      # Session resume logic
 ```
 
 ## Commands
 
-| Command | Purpose |
-|---------|---------|
-| `/explore <feature>` | Launch research agents, creates `.claude/workflows/NNN-slug/` |
-| `/plan` | Create phased implementation plan from research |
-| `/implement [--phase N] [--continue]` | Execute plan phase-by-phase with verification |
-| `/validate [--fix]` | Run tests, lint, type check, build |
-| `/commit` | Create commit with workflow artifacts |
-| `/handoff [description]` | Create handoff document for session transfer |
-| `/resume [path]` | Resume from handoff or workflow (picker if no path) |
+Commands are thin entry-point wrappers that invoke skills. The workflow logic lives in skills.
+
+| Command | Invokes Skill | Purpose |
+|---------|---------------|---------|
+| `/epic:explore <feature>` | `epic:epic-explore` | Launch research agents |
+| `/epic:plan` | `epic:epic-plan` | Create implementation plan |
+| `/epic:implement [--phase N]` | `epic:epic-implement` | Execute plan phase-by-phase |
+| `/epic:validate [--fix]` | `epic:epic-validate` | Run tests/lint/build |
+| `/epic:commit [--amend]` | `epic:epic-commit` | Create documented commit |
+| `/epic:handoff [desc]` | `epic:epic-handoff` | Create session handoff |
+| `/epic:resume [path]` | `epic:epic-resume` | Resume from handoff/workflow |
+
+**Architecture**: Commands handle entry point and argument parsing. Skills handle full workflow logic, tool execution, and artifact creation.
 
 ## Agents
 

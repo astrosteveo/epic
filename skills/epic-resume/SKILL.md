@@ -1,6 +1,10 @@
 ---
 name: epic-resume
 description: Resume work from a previous session via handoff document or workflow state. Efficiently restores context for session continuity. Triggered when user needs to continue interrupted work, switch between features, or restore context from a different session. Uses minimal context loading (target under 20%) while providing full situational awareness.
+allowed-tools:
+  - Read
+  - Glob
+  - AskUserQuestion
 ---
 
 # Epic Resume

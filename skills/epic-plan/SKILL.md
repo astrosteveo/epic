@@ -1,6 +1,12 @@
 ---
 name: epic-plan
 description: Create phased implementation plans from research artifacts. Use after /epic:explore completes to design atomic, verifiable implementation phases. Triggers on /epic:plan or when user wants to create an implementation plan, design phases, or prepare for coding based on completed research.
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Glob
+  - Task
 ---
 
 # Epic Plan

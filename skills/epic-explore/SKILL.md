@@ -1,6 +1,12 @@
 ---
 name: epic-explore
 description: Launch research agents to understand a codebase before planning changes. Use when starting a new feature, fixing bugs, or refactoring. Creates workflow artifacts in `.claude/workflows/NNN-slug/`. Triggers on /epic:explore or when user wants to explore/understand codebase structure, patterns, or implementation details before making changes.
+allowed-tools:
+  - Read
+  - Write
+  - Glob
+  - Task
+  - Bash(ls:*, mkdir:*, date:*)
 ---
 
 # Epic Explore
