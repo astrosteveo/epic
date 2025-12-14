@@ -23,6 +23,7 @@
   ],
   "skills": [
     "./skills/workflow-guide/SKILL.md",
-    "./skills/command-creator/SKILL.md"
+    "./skills/command-creator/SKILL.md",
+    "./skills/epic-explore/SKILL.md"
   ]
 }
