@@ -117,8 +117,8 @@ All workflow artifacts go in `docs/NNN-feature-slug/`:
 docs/
 └── 001-add-authentication/
     ├── research/
-    │   ├── codebase-exploration.md
-    │   └── external-research.md
+    │   ├── codebase.md
+    │   └── docs.md
     ├── plans/
     │   └── implementation-plan.md
     ├── implementation/

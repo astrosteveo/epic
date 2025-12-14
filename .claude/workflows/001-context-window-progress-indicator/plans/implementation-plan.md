@@ -2,7 +2,7 @@
 
 **Date**: 2025-12-13
 **Feature Slug**: 001-context-window-progress-indicator
-**Research**: [Codebase](../research/codebase-exploration.md) | [External](../research/external-research.md)
+**Research**: [Codebase](../research/codebase.md) | [Docs](../research/docs.md)
 
 ## Goal
 
@@ -48,8 +48,8 @@ Feature: [description]
 Directory: .claude/workflows/[NNN-slug]/
 
 Research Artifacts:
-- codebase-exploration.md ([X] files documented)
-- external-research.md ([Y] sources cited)
+- codebase.md ([X] files documented)
+- docs.md ([Y] sources cited)
 
 **Context**: ~45K / 200K tokens (23%)
 

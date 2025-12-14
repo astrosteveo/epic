@@ -51,8 +51,8 @@ Creates a well-documented commit with references to artifacts.
 docs/
 └── 001-add-authentication/
     ├── research/
-    │   ├── codebase-exploration.md
-    │   └── external-research.md
+    │   ├── codebase.md
+    │   └── docs.md
     ├── plans/
     │   └── implementation-plan.md
     ├── implementation/

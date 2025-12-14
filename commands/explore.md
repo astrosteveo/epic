@@ -55,7 +55,7 @@ Task tool parameters:
   prompt: |
     Explore this codebase to understand: [feature description]
 
-    Document your findings to: .claude/workflows/[NNN-slug]/research/codebase-exploration.md
+    Document your findings to: .claude/workflows/[NNN-slug]/research/codebase.md
 
     Focus on:
     - Relevant files with file:line references
@@ -64,7 +64,7 @@ Task tool parameters:
     - Dependencies and constraints
     - Integration points
 
-    Use template structure from: ${CLAUDE_PLUGIN_ROOT}/templates/codebase-exploration.md
+    Use template structure from: ${CLAUDE_PLUGIN_ROOT}/templates/codebase.md
 ```
 
 #### Agent 2: docs-researcher
@@ -76,7 +76,7 @@ Task tool parameters:
   prompt: |
     Research external documentation and best practices for: [feature description]
 
-    Document your findings to: .claude/workflows/[NNN-slug]/research/external-research.md
+    Document your findings to: .claude/workflows/[NNN-slug]/research/docs.md
 
     Focus on:
     - Official documentation for relevant libraries
@@ -85,7 +85,7 @@ Task tool parameters:
     - Performance considerations
     - Authoritative code examples
 
-    Use template structure from: ${CLAUDE_PLUGIN_ROOT}/templates/external-research.md
+    Use template structure from: ${CLAUDE_PLUGIN_ROOT}/templates/docs.md
 ```
 
 **Critical:**
@@ -147,8 +147,8 @@ TaskOutput tool parameters:
 **Note:** You can call both TaskOutput tools in parallel to wait for both agents simultaneously.
 
 After both agents complete, verify artifacts exist:
-- `.claude/workflows/[NNN-slug]/research/codebase-exploration.md`
-- `.claude/workflows/[NNN-slug]/research/external-research.md`
+- `.claude/workflows/[NNN-slug]/research/codebase.md`
+- `.claude/workflows/[NNN-slug]/research/docs.md`
 
 Update `state.md`: Set Explore status to "complete".
 
@@ -192,8 +192,8 @@ Feature: [description]
 Directory: .claude/workflows/[NNN-slug]/
 
 Research Artifacts:
-- codebase-exploration.md ([X] files documented)
-- external-research.md ([Y] sources cited)
+- codebase.md ([X] files documented)
+- docs.md ([Y] sources cited)
 
 **Context**: ~[X]K / 200K tokens ([Y]%)
 

@@ -42,8 +42,8 @@ From the feature directory, read both research documents:
 
 | Document | Contains |
 |----------|----------|
-| `research/codebase-exploration.md` | File locations, patterns, dependencies |
-| `research/external-research.md` | Best practices, library docs, security guidance |
+| `research/codebase.md` | File locations, patterns, dependencies |
+| `research/docs.md` | Best practices, library docs, security guidance |
 
 Extract key information:
 - Files that need modification (with line numbers)

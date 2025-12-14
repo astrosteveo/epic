@@ -1,4 +1,4 @@
-# External Research: {{FEATURE}}
+# Documentation Research: {{FEATURE}}
 
 **Date**: {{DATE}}
 **Feature Slug**: {{SLUG}}

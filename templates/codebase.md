@@ -1,4 +1,4 @@
-# Codebase Exploration: {{FEATURE}}
+# Codebase Analysis: {{FEATURE}}
 
 **Date**: {{DATE}}
 **Feature Slug**: {{SLUG}}

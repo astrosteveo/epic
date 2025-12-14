@@ -2,7 +2,7 @@
 
 **Date**: {{DATE}}
 **Feature Slug**: {{SLUG}}
-**Research**: [Codebase](./research/codebase-exploration.md) | [External](./research/external-research.md)
+**Research**: [Codebase](./research/codebase.md) | [Docs](./research/docs.md)
 
 ## Goal
 
