@@ -9,12 +9,58 @@ This is a Claude Code marketplace plugin implementing the "Frequent Intentional 
 ## Plugin Structure
 
 ```
-├── .claude-plugin
-│   └── plugin.json
-├── agents/
-├── commands/
-├── hooks/
-└── skills/
+├── .claude-plugin/plugin.json    # Plugin manifest defining entry points
+├── agents/                       # Specialized subagent definitions
+│   ├── codebase-explorer.md      # Maps codebase structure (facts only)
+│   ├── docs-researcher.md        # Researches external documentation
+│   ├── plan-validator.md         # Validates plans before implementation
+│   └── implementation-validator.md
+├── commands/                     # Slash command definitions
+│   ├── explore.md                # /explore - Launch research agents
+│   ├── plan.md                   # /plan - Create implementation plan
+│   ├── implement.md              # /implement - Execute plan phase-by-phase
+│   ├── validate.md               # /validate - Run tests/lint/build
+│   └── commit.md                 # /commit - Create documented commit
+├── templates/                    # Artifact templates
+│   ├── codebase.md, docs.md      # Research output templates
+│   ├── implementation-plan.md    # Plan structure template
+│   ├── progress.md               # Implementation progress template
+│   └── state.md                  # Workflow state tracker
+└── skills/                       # Interactive skills
+```
+
+## Commands
+
+| Command | Purpose |
+|---------|---------|
+| `/explore <feature>` | Launch research agents, creates `.claude/workflows/NNN-slug/research/` |
+| `/plan` | Create phased implementation plan from research |
+| `/implement [--phase N] [--continue]` | Execute plan phase-by-phase with verification |
+| `/validate [--fix]` | Run tests, lint, type check, build |
+| `/commit` | Create commit with workflow artifacts |
+
+## Agents
+
+- **codebase-explorer**: Maps relevant files with `file:line` references. Documents facts only—no suggestions or critique. Uses Grep/Glob/Read efficiently.
+- **docs-researcher**: Fetches current external documentation. Only launched when feature involves external libraries, security, or unfamiliar technology.
+- **plan-validator**: Reviews implementation plans for completeness and feasibility.
+- **implementation-validator**: Verifies code changes align with approved plan.
+
+## Workflow Artifacts
+
+All artifacts are stored in `.claude/workflows/NNN-slug/`:
+```
+.claude/workflows/001-add-authentication/
+├── state.md                    # Current phase, task IDs, status
+├── research/
+│   ├── codebase.md            # Internal codebase findings
+│   └── docs.md                # External documentation (if researched)
+├── plans/
+│   └── implementation-plan.md # Phased plan with verification steps
+├── implementation/
+│   └── progress.md            # Phase completion tracking
+└── validation/
+    └── results.md             # Test/lint/build results
 ```
 
 ## Core Workflow Principles (from VISION.md)
@@ -50,9 +96,11 @@ Error in Code     → ~1 bad line of code
 
 Human review should focus on Research > Plan > Code.
 
-## Development
+## Installation
 
-The plugin manifest at `.claude-plugin/plugin.json` defines the entry points for agents, commands, and skills directories which need to be created and populated.
+```bash
+claude --plugin-dir /path/to/explore-plan-implement
+```
 
 ## Key Design Goals
 
