@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["name", "description"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^epic-[a-z-]+$",
+      "description": "Skill name (epic-[phase] pattern, hyphens allowed)"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10
+    },
+    "allowed-tools": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tools this skill can use"
+    }
+  },
+  "additionalProperties": true
+}

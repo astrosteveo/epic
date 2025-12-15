@@ -5,31 +5,5 @@
   "author": {
     "name": "astrosteveo"
   },
-  "keywords": ["workflow", "planning", "documentation", "checkpointing"],
-  "agents": [
-    "./agents/codebase-explorer.md",
-    "./agents/docs-researcher.md",
-    "./agents/plan-validator.md",
-    "./agents/implementation-validator.md"
-  ],
-  "commands": [
-    "./commands/explore.md",
-    "./commands/plan.md",
-    "./commands/implement.md",
-    "./commands/validate.md",
-    "./commands/commit.md",
-    "./commands/handoff.md",
-    "./commands/resume.md"
-  ],
-  "skills": [
-    "./skills/workflow-guide/SKILL.md",
-    "./skills/command-creator/SKILL.md",
-    "./skills/epic-explore/SKILL.md",
-    "./skills/epic-plan/SKILL.md",
-    "./skills/epic-implement/SKILL.md",
-    "./skills/epic-validate/SKILL.md",
-    "./skills/epic-commit/SKILL.md",
-    "./skills/epic-handoff/SKILL.md",
-    "./skills/epic-resume/SKILL.md"
-  ]
+  "keywords": ["workflow", "planning", "documentation", "checkpointing"]
 }

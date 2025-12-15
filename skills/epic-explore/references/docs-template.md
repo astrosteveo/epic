@@ -54,10 +54,10 @@ sources_consulted: 0
 ## Code Examples
 
 ### Example 1: [Description]
-\`\`\`language
+```language
 // Source: URL
 code here
-\`\`\`
+```
 
 ## Security Considerations
 
