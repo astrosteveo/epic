@@ -1,30 +1,31 @@
 {
   "name": "astrosteveo-plugins",
+  "description": "A collection of Claude plugins developed by astrosteveo to enhance productivity and project management.",
   "owner": {
-    "name": "astrosteveo",
-    "email": "stevengmjr@gmail.com"
-  },
-  "metadata": {
-    "description": "A collection of Claude Code plugins for enhanced development workflows",
-    "version": "0.1.0",
-    "pluginRoot": "./plugins"
+    "name": "astrosteveo"
   },
   "plugins": [
     {
       "name": "agile-workflow",
-      "source": "agile-workflow",
-      "description": "AGILE-style project management workflow optimized for LLM context limitations. Enforces PRD-first development with explore, plan, and implement phases.",
-      "version": "0.1.0",
+      "description": "A plugin to assist with agile project management tasks such as sprint planning, user story creation, and task tracking.",
       "author": {
         "name": "astrosteveo",
-        "email":"stevengmjr@gmail.com"
+        "email": "stevengmjr@gmail.com"
       },
-      "homepage": "https://github.com/astrosteveo/claude-code-plugins",
-      "repository": "https://github.com/astrosteveo/claude-code-plugins",
-      "license": "MIT",
-      "keywords": ["agile", "workflow", "project-management", "prd", "planning"],
-      "category": "workflow",
-      "tags": ["agile", "planning", "workflow"]
+      "source": "./plugins/agile-workflow",
+      "category": "development",
+      "homepage": "https://github.com/astrosteveo/claude-code-plugins"
+    },
+    {
+      "name": "agent-toolkit",
+      "description": "A toolkit for creating, managing, and optimizing Claude Code subagents with templates, best practices, and interactive guidance.",
+      "author": {
+        "name": "astrosteveo",
+        "email": "stevengmjr@gmail.com"
+      },
+      "source": "./plugins/agent-toolkit",
+      "category": "development",
+      "homepage": "https://github.com/astrosteveo/claude-code-plugins"
     }
   ]
 }

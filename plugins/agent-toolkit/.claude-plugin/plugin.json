@@ -1,0 +1,8 @@
+{
+  "name": "agent-toolkit",
+  "description": "A toolkit for creating, managing, and optimizing Claude Code subagents. Provides templates, best practices, and interactive guidance for authoring high-quality specialized agents.",
+  "author": {
+    "name": "astrosteveo"
+  },
+  "keywords": ["agents", "subagents", "automation", "templates", "claude-code"]
+}
