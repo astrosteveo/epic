@@ -1,0 +1,9 @@
+{
+  "name": "agile-workflow",
+  "version": "0.1.0",
+  "description": "AGILE-style project management workflow optimized for LLM context limitations. Enforces PRD-first development with explore, plan, and implement phases.",
+  "author": {
+    "name": "astrosteveo"
+  },
+  "keywords": ["agile", "workflow", "project-management", "prd", "planning"]
+}
