@@ -41,7 +41,10 @@ One command to rule them all. Context-aware routing based on current state.
 
 ```mermaid
 flowchart TD
-    W["/workflow"] --> Check{Check State}
+    W["/workflow"] --> GitCheck{Git repo exists?}
+    GitCheck -->|No| InitGit[Initialize git repo]
+    InitGit --> Check{Check State}
+    GitCheck -->|Yes| Check
 
     Check --> NoPRD{PRD exists?}
     NoPRD -->|No| Discovery1[Discovery Conversation]
@@ -82,6 +85,46 @@ flowchart TD
 - **Context-aware**: The command figures out what to do based on state
 - **Discovery-driven**: Epics are created through conversation, not commands
 - **Smart routing**: Automatically progresses through phases when ready
+- **Git-first**: Initializes git repo on first invocation if none exists - commit history is part of project state
+
+### Commit Strategy
+
+Git commits happen automatically at key workflow points:
+
+```mermaid
+flowchart LR
+    subgraph Discovery
+        D1[PRD created/updated] --> C1[Commit]
+    end
+
+    subgraph Explore
+        E1[research.md created] --> C2[Commit]
+    end
+
+    subgraph Plan
+        P1[plan.md created] --> C3[Commit]
+    end
+
+    subgraph Implement
+        I1[Story completed] --> C4[Commit]
+        I2[Epic completed] --> C5[Commit]
+    end
+```
+
+| Trigger | Commit Message Pattern |
+|---------|------------------------|
+| PRD created | `docs(prd): initialize PRD for [project]` |
+| PRD updated (new epic) | `docs(prd): add [epic-slug] epic` |
+| Exploration complete | `docs(explore): add research for [epic-slug]` |
+| Plan complete | `docs(plan): add implementation plan for [epic-slug]` |
+| Story complete | `feat([epic-slug]): [story-slug] - [story name]` |
+| Epic complete | `feat([epic-slug]): complete epic - [epic name]` |
+
+This provides:
+- **Audit trail**: Every decision and change is tracked
+- **Rollback points**: Can revert to any phase
+- **Progress visibility**: `git log` shows project evolution
+- **No extra tooling**: Uses what developers already have
 
 ## Agents
 
