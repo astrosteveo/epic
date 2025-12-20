@@ -1,0 +1,71 @@
+{
+  "project": "agile-workflow-plugin",
+  "epics": {
+    "project-scaffold": {
+      "name": "Project Scaffold",
+      "description": "This epic establishes the plugin project structure, configuration files, and base architecture",
+      "ac": [
+        "Plugin has proper directory structure",
+        "Configuration files are in place",
+        "Base architecture supports agent execution"
+      ],
+      "effort": null,
+      "status": "in_progress",
+      "phase": "explore",
+      "stories": {}
+    },
+    "agent-definitions": {
+      "name": "Agent Definitions",
+      "description": "This epic defines and implements the explore, plan, and implement agents with their prompts and behaviors",
+      "ac": [
+        "Explore agent produces research docs",
+        "Plan agent produces plan docs",
+        "Implement agent executes stories"
+      ],
+      "effort": null,
+      "status": "pending",
+      "phase": null,
+      "stories": {}
+    },
+    "workflow-orchestration": {
+      "name": "Workflow Orchestration",
+      "description": "This epic implements the gate enforcement and routing logic that ensures proper workflow progression",
+      "ac": [
+        "PRD gate prevents exploration without requirements",
+        "Plan gate prevents implementation without plan",
+        "Routing directs to correct agent based on phase"
+      ],
+      "effort": null,
+      "status": "pending",
+      "phase": null,
+      "stories": {}
+    },
+    "state-management": {
+      "name": "State Management",
+      "description": "This epic implements the state.json read/write operations and sync mechanisms",
+      "ac": [
+        "State file is read and parsed correctly",
+        "State file is updated atomically",
+        "State stays in sync with actual project"
+      ],
+      "effort": null,
+      "status": "pending",
+      "phase": null,
+      "stories": {}
+    },
+    "commands-and-skills": {
+      "name": "Commands and Skills",
+      "description": "This epic implements the user-facing commands and skills for interacting with the workflow",
+      "ac": [
+        "User can initialize a project",
+        "User can create epics",
+        "User can check status",
+        "User can trigger workflow phases"
+      ],
+      "effort": null,
+      "status": "pending",
+      "phase": null,
+      "stories": {}
+    }
+  }
+}
