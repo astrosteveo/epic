@@ -68,7 +68,7 @@ When a user describes what they want an agent to do, you will:
    description: Use this agent when the user asks to [specific triggers]. Also triggers when [other scenarios].
    model: inherit
    color: [chosen-color]
-   tools: ["Tool1", "Tool2"]
+   tools: Tool1, Tool2, Tool3
    ---
 
    [Complete system prompt - all instructions go here in the body, not in frontmatter]
@@ -77,6 +77,7 @@ When a user describes what they want an agent to do, you will:
 **CRITICAL FORMAT RULES:**
 - The frontmatter (between `---` markers) must be valid YAML
 - Description must be a simple string on one line - NO newlines, NO `\n` escapes, NO XML tags
+- Tools must be comma-separated (e.g., `tools: Read, Write, Grep`) - NOT a JSON array like `["Read", "Write"]`
 - Do NOT put examples, commentary, or any structured content in the description field
 - All detailed instructions belong in the system prompt body AFTER the closing `---`
 
