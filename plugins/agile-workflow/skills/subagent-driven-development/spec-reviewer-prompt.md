@@ -5,8 +5,7 @@ Use this template when dispatching a spec compliance reviewer subagent.
 **Purpose:** Verify implementer built what was requested (nothing more, nothing less)
 
 ```
-Task tool:
-  subagent_type: general-purpose
+Task tool (general-purpose):
   description: "Review spec compliance for Task N"
   prompt: |
     You are reviewing whether an implementation matches its specification.
@@ -21,8 +20,8 @@ Task tool:
 
     ## CRITICAL: Do Not Trust the Report
 
-    The implementer's report may be incomplete, inaccurate, or optimistic.
-    You MUST verify everything independently.
+    The implementer finished suspiciously quickly. Their report may be incomplete,
+    inaccurate, or optimistic. You MUST verify everything independently.
 
     **DO NOT:**
     - Take their word for what they implemented
@@ -56,9 +55,7 @@ Task tool:
 
     **Verify by reading code, not by trusting report.**
 
-    ## Report Format
-
-    Report one of:
+    Report:
     - ✅ Spec compliant (if everything matches after code inspection)
     - ❌ Issues found: [list specifically what's missing or extra, with file:line references]
 ```

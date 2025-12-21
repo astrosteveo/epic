@@ -1,168 +1,139 @@
 ---
 name: verification-before-completion
-description: Use this skill before claiming any task is complete, before committing, before saying "done", or when about to report success. Enforces evidence-first verification. Triggers on "fixed", "done", "complete", "working now", or any success claim.
+description: Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always
 ---
 
 # Verification Before Completion
 
+## Overview
+
+Claiming work is complete without verification is dishonesty, not efficiency.
+
+**Core principle:** Evidence before claims, always.
+
+**Violating the letter of this rule is violating the spirit of this rule.**
+
 ## The Iron Law
 
-**NO COMPLETION CLAIMS WITHOUT FRESH VERIFICATION EVIDENCE**
+```
+NO COMPLETION CLAIMS WITHOUT FRESH VERIFICATION EVIDENCE
+```
 
-Never say "done", "fixed", or "working" without running verification and showing the output.
+If you haven't run the verification command in this message, you cannot claim it passes.
 
 ## The Gate Function
 
-BEFORE making any completion claim:
+```
+BEFORE claiming any status or expressing satisfaction:
 
-1. **IDENTIFY** - What command proves this claim?
-2. **RUN** - Execute the FULL command (fresh, complete)
-3. **READ** - Full output, check exit code, count results
-4. **VERIFY** - Does output actually confirm the claim?
+1. IDENTIFY: What command proves this claim?
+2. RUN: Execute the FULL command (fresh, complete)
+3. READ: Full output, check exit code, count failures
+4. VERIFY: Does output confirm the claim?
    - If NO: State actual status with evidence
    - If YES: State claim WITH evidence
-5. **ONLY THEN** - Make the claim
+5. ONLY THEN: Make the claim
 
-## Common Patterns
-
-### Tests
-
-```
-✅ Run: npm test
-   Output: "47 passing, 0 failing"
-   Claim: "All tests pass"
-
-❌ "Tests should pass now"
-❌ "Looks correct"
-❌ "I fixed it"
+Skip any step = lying, not verifying
 ```
 
-### Bug Fixes
+## Common Failures
 
-```
-✅ REQUIRES:
-   1. Test original symptom passes
-   2. All other tests still pass
-
-   Run: npm test
-   Output: "48 passing (including new regression test)"
-   Claim: "Bug fixed, regression test added"
-
-❌ "Code changed, should be fixed"
-❌ "Applied the fix"
-```
-
-### Regression Tests (TDD Red-Green)
-
-```
-✅ REQUIRES:
-   1. Write test → Run (PASS with fix)
-   2. Revert fix → Run (MUST FAIL)
-   3. Restore fix → Run (PASS)
-
-   Claim: "Regression test verified - fails without fix, passes with it"
-
-❌ "I've written a regression test" (without red-green verification)
-```
-
-### Build/Compile
-
-```
-✅ Run: npm run build
-   Output: "Build completed successfully"
-   Claim: "Build passes"
-
-❌ "Should compile now"
-❌ "Fixed the type error"
-```
-
-### Linting
-
-```
-✅ Run: npm run lint
-   Output: "0 errors, 0 warnings"
-   Claim: "Linting passes"
-
-❌ "Lint errors fixed"
-```
+| Claim | Requires | Not Sufficient |
+|-------|----------|----------------|
+| Tests pass | Test command output: 0 failures | Previous run, "should pass" |
+| Linter clean | Linter output: 0 errors | Partial check, extrapolation |
+| Build succeeds | Build command: exit 0 | Linter passing, logs look good |
+| Bug fixed | Test original symptom: passes | Code changed, assumed fixed |
+| Regression test works | Red-green cycle verified | Test passes once |
+| Agent completed | VCS diff shows changes | Agent reports "success" |
+| Requirements met | Line-by-line checklist | Tests passing |
 
 ## Red Flags - STOP
 
-You're about to violate this skill if you're:
-
 - Using "should", "probably", "seems to"
-- Expressing satisfaction before verification ("Great!", "Perfect!", "Done!")
-- About to commit/push/PR without running tests
-- Trusting your own success report without fresh run
-- Relying on partial verification ("the main test passes")
-- About to say "fixed" without showing test output
+- Expressing satisfaction before verification ("Great!", "Perfect!", "Done!", etc.)
+- About to commit/push/PR without verification
+- Trusting agent success reports
+- Relying on partial verification
+- Thinking "just this once"
+- Tired and wanting work over
+- **ANY wording implying success without having run verification**
 
-## Verification Commands by Context
+## Rationalization Prevention
 
-### JavaScript/TypeScript
-```bash
-npm test                    # All tests
-npm test -- --grep "name"   # Specific test
-npm run build               # Build
-npm run lint                # Lint
-npm run typecheck           # Types
+| Excuse | Reality |
+|--------|---------|
+| "Should work now" | RUN the verification |
+| "I'm confident" | Confidence ≠ evidence |
+| "Just this once" | No exceptions |
+| "Linter passed" | Linter ≠ compiler |
+| "Agent said success" | Verify independently |
+| "I'm tired" | Exhaustion ≠ excuse |
+| "Partial check is enough" | Partial proves nothing |
+| "Different words so rule doesn't apply" | Spirit over letter |
+
+## Key Patterns
+
+**Tests:**
+```
+✅ [Run test command] [See: 34/34 pass] "All tests pass"
+❌ "Should pass now" / "Looks correct"
 ```
 
-### Python
-```bash
-pytest                      # All tests
-pytest path/to/test.py -v   # Specific file
-pytest -k "test_name"       # Specific test
-mypy .                      # Type check
-ruff check .                # Lint
+**Regression tests (TDD Red-Green):**
+```
+✅ Write → Run (pass) → Revert fix → Run (MUST FAIL) → Restore → Run (pass)
+❌ "I've written a regression test" (without red-green verification)
 ```
 
-### Go
-```bash
-go test ./...               # All tests
-go test ./path/... -v       # Specific package
-go build ./...              # Build
-golangci-lint run           # Lint
+**Build:**
+```
+✅ [Run build] [See: exit 0] "Build passes"
+❌ "Linter passed" (linter doesn't check compilation)
 ```
 
-### Rust
-```bash
-cargo test                  # All tests
-cargo test test_name        # Specific test
-cargo build                 # Build
-cargo clippy                # Lint
+**Requirements:**
+```
+✅ Re-read plan → Create checklist → Verify each → Report gaps or completion
+❌ "Tests pass, phase complete"
 ```
 
-## Claim Templates
-
-### Successful Completion
+**Agent delegation:**
 ```
-Verified: [command run]
-Output: [relevant output or summary]
-Result: [specific claim with evidence]
+✅ Agent reports success → Check VCS diff → Verify changes → Report actual state
+❌ Trust agent report
 ```
 
-### Partial Completion
-```
-Verified: [command run]
-Output: [what actually happened]
-Status: [X of Y complete, specific blockers]
-```
+## Why This Matters
 
-### Failed Verification
-```
-Verified: [command run]
-Output: [actual error/failure]
-Issue: [what's actually wrong]
-Next: [what needs to happen]
-```
+From 24 failure memories:
+- your human partner said "I don't believe you" - trust broken
+- Undefined functions shipped - would crash
+- Missing requirements shipped - incomplete features
+- Time wasted on false completion → redirect → rework
+- Violates: "Honesty is a core value. If you lie, you'll be replaced."
 
-## Constraints
+## When To Apply
 
-- **Never claim success without fresh verification** - Always run the command
-- **Never use hedging language** - No "should", "probably", "I think"
-- **Never trust previous runs** - Run verification fresh each time
-- **Never skip showing output** - Include the evidence
-- **Never verify partially** - Run the full suite, not just one test
-- **Always include the command** - Show what was run
-- **Always include the output** - Show what happened
+**ALWAYS before:**
+- ANY variation of success/completion claims
+- ANY expression of satisfaction
+- ANY positive statement about work state
+- Committing, PR creation, task completion
+- Moving to next task
+- Delegating to agents
+
+**Rule applies to:**
+- Exact phrases
+- Paraphrases and synonyms
+- Implications of success
+- ANY communication suggesting completion/correctness
+
+## The Bottom Line
+
+**No shortcuts for verification.**
+
+Run the command. Read the output. THEN claim the result.
+
+This is non-negotiable.
