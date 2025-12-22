@@ -1,18 +1,18 @@
 {
   "name": "agile-workflow",
-  "description": "AGILE-style project management with TDD enforcement, Socratic discovery, and systematic debugging. Features PRD-first development, bite-sized task planning, two-stage code review, and git worktree isolation.",
+  "version": "0.1.0",
+  "description": "Iterative development with Socratic discovery, smallest vertical slice planning, and fresh-agent-per-task implementation. Features two-stage review (spec + quality), organic verification checkpoints, and both focused and autonomous execution modes.",
   "author": {
     "name": "astrosteveo"
   },
   "keywords": [
     "agile",
     "workflow",
-    "project-management",
-    "prd",
+    "discovery",
     "planning",
     "tdd",
-    "debugging",
     "code-review",
-    "git-worktrees"
+    "subagents",
+    "iterative"
   ]
 }

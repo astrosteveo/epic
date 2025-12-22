@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "agile-workflow",
-      "description": "A plugin to assist with agile project management tasks such as sprint planning, user story creation, and task tracking.",
+      "description": "Iterative development with Socratic discovery, smallest vertical slice planning, and fresh-agent-per-task implementation.",
       "author": {
         "name": "astrosteveo",
         "email": "stevengmjr@gmail.com"

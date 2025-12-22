@@ -1,0 +1,10 @@
+{
+  "name": "agile-workflow-dev",
+  "description": "Development marketplace for agile-workflow plugin",
+  "owner": {
+    "name": "astrosteveo"
+  },
+  "plugins": [
+
+  ]
+}
