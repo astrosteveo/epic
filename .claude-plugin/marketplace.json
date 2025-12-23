@@ -15,6 +15,17 @@
       "source": "./plugins/agent-workflow",
       "category": "development",
       "homepage": "https://github.com/astrosteveo/claude-code-plugins"
+    },
+    {
+      "name": "explore-plan-implement-commit",
+      "description": "Adaptive development workflow for all skill levels. Guides users from brainstorming through exploration, design, planning, implementation, and commit.",
+      "author": {
+        "name": "Steven Mosley",
+        "email": "stevengmjr@gmail.com"
+      },
+      "source": "./plugins/explore-plan-implement-commit",
+      "category": "development",
+      "homepage": "https://github.com/astrosteveo/claude-code-plugins"
     }
   ]
 }
