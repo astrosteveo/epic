@@ -25,55 +25,55 @@ agents/
 
 ### Phase 1: Cleanup
 
-- [ ] Task 1: Delete obsolete skill folders
+- [x] Task 1: Delete obsolete skill folders *(committed: 71778f7)*
   - Remove: `brainstorm/`, `codebase-explorer/`, `research/`, `design-writer/`, `plan-writer/`, `implement/`, `commit/`, `code-reviewer/`, `test-reviewer/`, `plan-validator/`
   - Keep: `skills/` directory for new structure
 
-- [ ] Task 2: Delete obsolete files
+- [x] Task 2: Delete obsolete files *(committed: 71778f7)*
   - Remove: `prompt.md` (old plugin prompt)
   - Remove: `commands/` directory (no slash commands needed)
   - Keep: `agents/` directory for restructure
 
 ### Phase 2: Subagent Definitions
 
-- [ ] Task 3: Create `agents/discoverer.md`
+- [x] Task 3: Create `agents/discoverer.md` *(committed: f944c19)*
   - Persona: Truth-documenter, researcher
   - Focus: Epistemic humility, no opinions, verify everything
   - Loads: `discover` skill
 
-- [ ] Task 4: Create `agents/coder.md`
+- [x] Task 4: Create `agents/coder.md` *(committed: f944c19)*
   - Persona: Builder, implementer
   - Focus: TDD, atomic commits, follows specs exactly
   - Loads: `code` skill
   - Includes: Debugging mode when tests fail
 
-- [ ] Task 5: Create `agents/reviewer.md`
+- [x] Task 5: Create `agents/reviewer.md` *(committed: f944c19)*
   - Persona: Critical analyst
   - Focus: Quality gates, catching issues, validation
   - Loads: `review` skill
 
 ### Phase 3: Skills
 
-- [ ] Task 6: Create `skills/discover/SKILL.md`
+- [x] Task 6: Create `skills/discover/SKILL.md` *(committed: c70c1df)*
   - Codebase mapping: document what exists with file:line refs
   - Research: fetch from authoritative sources, verify everything
   - Outputs: `codebase.md`, `research.md`
   - Commit after each artifact
 
-- [ ] Task 7: Create `skills/code/SKILL.md`
+- [x] Task 7: Create `skills/code/SKILL.md` *(committed: c70c1df)*
   - Implementation: follow task specs exactly
   - TDD: write tests first when appropriate
   - Debugging: systematic root cause analysis when tests fail
   - Atomic commits: one task = one commit
   - Update `plan.md` with commit hash after each task
 
-- [ ] Task 8: Create `skills/review/SKILL.md`
+- [x] Task 8: Create `skills/review/SKILL.md` *(committed: c70c1df)*
   - Code review: quality, best practices, design alignment
   - Test review: validate tests are real, not stubs/mocks
   - Plan validation: confirm implementation matches plan
   - Output: pass/fail with actionable feedback
 
-- [ ] Task 9: Create `skills/workflow/SKILL.md`
+- [x] Task 9: Create `skills/workflow/SKILL.md` *(committed: c70c1df)*
   - Intent detection: infer from natural language
     - Vague + creative → start with brainstorm questions
     - Clear request → start at Explore
@@ -91,11 +91,11 @@ agents/
 
 ### Phase 4: Integration
 
-- [ ] Task 10: Update `plugin.json`
+- [x] Task 10: Update `plugin.json` *(committed: 3d6e6a4)*
   - Update description to reflect new architecture
   - Update keywords
 
-- [ ] Task 11: Delete old agent files
+- [x] Task 11: Delete old agent files *(committed: f944c19)*
   - Remove: `agents/orchestrator.md` (replaced by workflow skill)
   - Remove any other legacy agent files
 
