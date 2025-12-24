@@ -1,7 +1,6 @@
 {
   "name": "explore-plan-implement-commit",
   "description": "Structured feature development: Explore → Plan → Code → Commit. Intent-based entry, 4 skills (workflow, discover, code, review), 3 subagents (discoverer, coder, reviewer). Research before creativity, planning before coding, commits after every artifact.",
-  "version": "2.0.0",
   "author": {
     "name": "astrosteveo"
   },
