@@ -1,6 +1,6 @@
 ---
 name: workflow
-description: Entry point and orchestration. Intent detection, phase progression (Explore → Plan → Code → Commit), brainstorming, design, and implementation modes.
+description: Use when the user wants to build a feature, implement functionality, fix a bug, create something new, or do any development work. Handles the complete workflow from brainstorming through implementation with research, design, planning, and quality gates. Invoke this skill for requests like "I want to add...", "Build me a...", "Create a...", "Implement...", "Fix...".
 ---
 
 # Workflow
