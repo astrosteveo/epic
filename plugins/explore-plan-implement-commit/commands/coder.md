@@ -1,5 +1,6 @@
 ---
-description: "Handles all implementation work. Writes code and tests following TDD patterns. Receives structured task templates from the Orchestrator."
+description: Invoke the coder subagent for TDD implementation work
+argument-hint: [task template from orchestrator]
 ---
 
-Use and follow the coder subagent exactly as written. Load all skills specified in the subagent frontmatter.
+Use the coder subagent to handle this: $ARGUMENTS

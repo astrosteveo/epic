@@ -1,7 +1,7 @@
 ---
 name: orchestrator
 description: Coordinates the workflow, plans tasks, performs all review functions, and manages issues. The conductor of the implementation process.
-skill: plan, code-reviewer, test-reviewer, plan-validator
+skills: plan, code-reviewer, test-reviewer, plan-validator
 ---
 
 # Orchestrator

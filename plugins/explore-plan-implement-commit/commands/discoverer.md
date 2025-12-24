@@ -1,5 +1,6 @@
 ---
-description: "Handles all information gathering - codebase analysis (explore) and external research (research). Documents truth without judgment."
+description: Invoke the discoverer subagent for codebase exploration and external research
+argument-hint: [task or question]
 ---
 
-Use and follow the discoverer subagent exactly as written. Load all skills specified in the subagent frontmatter.
+Use the discoverer subagent to handle this: $ARGUMENTS
