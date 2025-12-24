@@ -369,7 +369,7 @@ I've documented the codebase and saved it to `.workflow/NNN-feature-slug/codebas
 
 What's next?
 
-**A) Proceed to research** (Recommended)
+**A) Run `/research`** (Recommended)
    I'll gather validated best practices for these technologies
 
 **B) Review the codebase analysis first**
@@ -382,7 +382,7 @@ What's next?
    Something else in mind
 ```
 
-**Transition to:** `research` skill (if user confirms)
+**IMPORTANT:** When user selects option A, invoke the `research` skill using the Skill tool. Do NOT proceed to implementation or trigger built-in plan mode.
 
 ## Key Principles
 

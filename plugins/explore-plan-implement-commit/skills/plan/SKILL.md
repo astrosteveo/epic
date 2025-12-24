@@ -355,10 +355,10 @@ I've created the implementation plan and saved it to `.workflow/NNN-feature-slug
 
 How would you like to proceed with implementation?
 
-**A) Autonomous mode** (Recommended)
+**A) Run `/implement` (autonomous)** (Recommended)
    I'll execute all tasks with Orchestrator reviews after each. Minimal interruption.
 
-**B) Batched mode**
+**B) Run `/implement` (batched)**
    I'll do 2-3 tasks, then pause for your review before continuing.
 
 **C) Review the plan first**
@@ -368,7 +368,7 @@ How would you like to proceed with implementation?
    Different approach in mind
 ```
 
-**Transition to:** `implement` skill (if user confirms)
+**IMPORTANT:** When user selects option A or B, invoke the `implement` skill using the Skill tool with the appropriate mode. Do NOT trigger built-in plan mode.
 
 ## Key Principles
 

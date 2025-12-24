@@ -301,7 +301,7 @@ After all sections:
 
 What's next?
 
-**A) Finalize with commit skill** (Recommended)
+**A) Run `/commit`** (Recommended)
    Wrap up, update artifacts, and prepare for PR
 
 **B) Run additional tests**
@@ -314,7 +314,7 @@ What's next?
    Something else in mind
 ```
 
-**Transition to:** `commit` skill (if user confirms)
+**IMPORTANT:** When user selects option A, invoke the `commit` skill using the Skill tool.
 
 ## When to Stop and Ask
 

@@ -269,7 +269,7 @@ I've completed the research and saved it to `.workflow/NNN-feature-slug/research
 
 What's next?
 
-**A) Proceed to design** (Recommended)
+**A) Run `/design-writer`** (Recommended)
    I'll architect the solution based on these findings
 
 **B) Review the research first**
@@ -302,7 +302,7 @@ The research found conflicting guidance on [topic]:
 Which approach fits your needs?
 ```
 
-**Transition to:** `design-writer` skill (if user confirms)
+**IMPORTANT:** When user selects option A, invoke the `design-writer` skill using the Skill tool. Do NOT proceed to implementation or trigger built-in plan mode.
 
 ## Key Principles
 

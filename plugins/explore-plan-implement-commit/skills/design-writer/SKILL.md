@@ -469,11 +469,11 @@ The design follows [pattern name] from the existing codebase and incorporates be
 
 What's next?
 
-**A) Review the design document**
-   Let's walk through what I documented
-
-**B) Proceed to planning** (Recommended)
+**A) Run `/plan`** (Recommended)
    Break this into implementation tasks
+
+**B) Review the design document**
+   Let's walk through what I documented
 
 **C) Update specific sections**
    There's something to add or change
@@ -481,6 +481,8 @@ What's next?
 **D) Other**
    Something else in mind
 ```
+
+**IMPORTANT:** When user selects option A, invoke the `plan` skill using the Skill tool. Do NOT proceed to implementation or trigger built-in plan mode.
 
 ## Anti-Patterns to Avoid
 
