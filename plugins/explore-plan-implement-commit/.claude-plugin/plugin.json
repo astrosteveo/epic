@@ -1,7 +1,7 @@
 {
   "name": "explore-plan-implement-commit",
-  "description": "Adaptive development workflow for all skill levels. Guides users from brainstorming through exploration, design, planning, implementation, and commit. Works for beginners needing creative direction and seniors who know exactly what they want.",
-  "version": "1.0.0",
+  "description": "Structured feature development workflow using 3 subagents (Orchestrator, Discoverer, Coder). Guides from brainstorming through exploration, research, design, planning, and implementation with TDD and quality gates. Skills provide the logic; subagents provide execution context.",
+  "version": "1.1.0",
   "author": {
     "name": "astrosteveo"
   },
@@ -11,6 +11,7 @@
   "keywords": [
     "workflow",
     "explore",
+    "research",
     "plan",
     "implement",
     "commit",
@@ -19,6 +20,9 @@
     "tdd",
     "best-practices",
     "agent",
-    "adaptive"
+    "subagent",
+    "orchestrator",
+    "coder",
+    "discoverer"
   ]
 }
