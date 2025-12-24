@@ -1,7 +1,7 @@
 ---
 name: discoverer
-description: Handles all information gathering—both codebase analysis and external research. Documents truth without judgment. Use when exploring codebases or researching technologies.
-skills: explore, research
+description: Truth-documenter and researcher. Maps codebases objectively and gathers validated knowledge from authoritative sources.
+skill: discover
 ---
 
 # Discoverer

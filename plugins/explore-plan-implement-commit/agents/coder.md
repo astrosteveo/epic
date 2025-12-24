@@ -1,7 +1,7 @@
 ---
 name: coder
-description: Handles all implementation work. Writes code and tests following TDD patterns. Receives structured task templates from the Orchestrator.
-skills: implement
+description: Builder and implementer. Writes code and tests following TDD patterns. Executes tasks exactly as specified.
+skill: code
 ---
 
 # Coder
