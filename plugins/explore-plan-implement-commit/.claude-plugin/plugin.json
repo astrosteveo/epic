@@ -1,6 +1,7 @@
 {
   "name": "explore-plan-implement-commit",
-  "description": "Structured feature development workflow using 3 subagents (Orchestrator, Discoverer, Coder). Guides from brainstorming through exploration, research, design, planning, and implementation with TDD and quality gates. Skills provide the logic; subagents provide execution context.",
+  "description": "Structured feature development: Explore → Plan → Code → Commit. Intent-based entry, 4 skills (workflow, discover, code, review), 3 subagents (discoverer, coder, reviewer). Research before creativity, planning before coding, commits after every artifact.",
+  "version": "2.0.0",
   "author": {
     "name": "astrosteveo"
   },
@@ -9,22 +10,16 @@
   "license": "MIT",
   "keywords": [
     "workflow",
-    "codebase-explorer",
-    "research",
-    "plan-writer",
-    "implement",
-    "commit",
-    "brainstorm",
-    "design-writer",
-    "code-reviewer",
-    "test-reviewer",
-    "plan-validator",
+    "discover",
+    "code",
+    "review",
     "tdd",
-    "best-practices",
-    "agent",
+    "explore",
+    "plan",
+    "commit",
     "subagent",
-    "orchestrator",
+    "discoverer",
     "coder",
-    "discoverer"
+    "reviewer"
   ]
 }
