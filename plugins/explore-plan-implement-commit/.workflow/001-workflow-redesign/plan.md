@@ -99,7 +99,7 @@ agents/
   - Remove: `agents/orchestrator.md` (replaced by workflow skill)
   - Remove any other legacy agent files
 
-- [ ] Task 12: Test the workflow
+- [ ] Task 12: Test the workflow *(deferred - manual testing by user)*
   - Test: new feature request (natural language)
   - Test: vague request triggers brainstorm
   - Test: resume existing workflow
@@ -108,8 +108,8 @@ agents/
 
 ### Phase 5: Finalize
 
-- [ ] Task 13: Clean up `.workflow/001-workflow-redesign/`
-  - Verify all artifacts present
+- [x] Task 13: Clean up `.workflow/001-workflow-redesign/`
+  - Verify all artifacts present: design.md ✓, plan.md ✓
   - Final commit: `commit: finalize workflow redesign`
 
 ---
