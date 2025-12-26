@@ -6,14 +6,39 @@ description: Use when starting any conversation - establishes the harness workfl
 <EXTREMELY-IMPORTANT>
 ANY task that involves building, adding, fixing, changing, or exploring code MUST go through the harness workflow.
 
-"Let's add X" → Invoke harness:defining FIRST
-"Take a look at Y" → Invoke harness:defining FIRST
-"Can you help me with Z" → Invoke harness:defining FIRST
-
 IF A HARNESS SKILL APPLIES, YOU DO NOT HAVE A CHOICE. YOU MUST USE IT.
 
 This is not negotiable. This is not optional. You cannot rationalize your way out of this.
 </EXTREMELY-IMPORTANT>
+
+## Intent Detection - CRITICAL
+
+**When you see ANY of these patterns, invoke `harness:defining` IMMEDIATELY:**
+
+| User Says | Your Response |
+|-----------|---------------|
+| "Let's add X" | → Invoke harness:defining |
+| "Take a look at Y" | → Invoke harness:defining |
+| "Can you help me with Z" | → Invoke harness:defining |
+| "I want to build..." | → Invoke harness:defining |
+| "We need to fix..." | → Invoke harness:defining |
+| "Let's implement..." | → Invoke harness:defining |
+| "Can we add..." | → Invoke harness:defining |
+| "I'm thinking about..." | → Invoke harness:defining |
+| "What if we..." | → Invoke harness:defining |
+| "How would you approach..." | → Invoke harness:defining |
+| "Let's explore..." | → Invoke harness:defining |
+| "Take a look at adding..." | → Invoke harness:defining |
+| "Help me understand..." | → Invoke harness:defining |
+| "I need to..." | → Invoke harness:defining |
+| "Could you..." (+ any action) | → Invoke harness:defining |
+
+**The ONLY time you respond directly (no skill):**
+- Pure greetings: "Hello", "Hi", "Good morning"
+- Meta questions about the workflow itself: "What is harness?", "How does this work?"
+- Explicit requests to skip: "Just do X without the workflow"
+
+**When in doubt → Invoke harness:defining. Let the defining skill decide if it's lightweight.**
 
 # Harness Workflow
 

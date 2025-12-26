@@ -1,8 +1,6 @@
 ---
 name: defining
-description: |
-  Use this skill when starting a new task to establish requirements through Socratic dialogue.
-  Produces: .harness/{nnn}-{slug}/requirements.md
+description: "You MUST use this before ANY work - adding features, fixing bugs, exploring code, building components, modifying behavior, or answering questions about implementation. This is the entry point for ALL tasks."
 ---
 
 # Defining Phase
