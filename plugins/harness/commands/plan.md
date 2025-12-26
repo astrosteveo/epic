@@ -1,6 +1,6 @@
 ---
-description: Break a design into actionable implementation tasks.
-argument-hint: [optional] Feature number or name to plan.
+description: "Start or return to Plan phase - collaborative design through Socratic dialogue"
+disable-model-invocation: true
 ---
 
-/plan
+Invoke the harness:planning skill and follow it exactly.

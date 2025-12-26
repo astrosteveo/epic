@@ -1,13 +1,12 @@
 {
-  "description": "Harness workflow plugin hooks - injects workflow context at session start",
   "hooks": {
     "SessionStart": [
       {
-        "matcher": "startup",
+        "matcher": "startup|resume|clear",
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/init.sh"
+            "command": "cat \"${CLAUDE_PLUGIN_ROOT}/skills/using-harness/SKILL.md\""
           }
         ]
       }

@@ -1,23 +1,10 @@
 {
   "name": "harness",
-  "description": "Structured development workflow with socratic discovery, dynamic design/planning, TDD implementation, and verified delivery. Guides projects from idea to PR with full Git audit trail.",
+  "description": "A 5-phase workflow for Claude Code: Define → Research → Plan → Execute → Verify",
+  "version": "1.0.0",
   "author": {
     "name": "astrosteveo"
   },
-  "homepage": "https://github.com/astrosteveo/claude-code-plugins",
-  "repository": "https://github.com/astrosteveo/claude-code-plugins",
   "license": "MIT",
-  "keywords": [
-    "workflow",
-    "tdd",
-    "constitution",
-    "clarify",
-    "design",
-    "plan",
-    "implement",
-    "review",
-    "commit",
-    "socratic",
-    "git"
-  ]
+  "keywords": ["workflow", "tdd", "planning", "socratic"]
 }
