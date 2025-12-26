@@ -59,14 +59,11 @@ This is not negotiable. This is not optional. You cannot rationalize your way ou
 
 **Check for harness skills BEFORE ANY RESPONSE.** This includes clarifying questions. Even 1% chance means invoke the skill first.
 
-```
-User message received
-    ↓
-Could this be a task? (adding, fixing, building, exploring, changing anything)
-    ↓
-YES (even 1% chance) → Invoke harness:defining skill FIRST
-    ↓
-NO (purely conversational, no action implied) → Respond directly
+```mermaid
+flowchart TD
+    A[User message received] --> B{Could this be a task?}
+    B -->|YES - even 1% chance| C[Invoke harness:defining skill FIRST]
+    B -->|NO - purely conversational| D[Respond directly]
 ```
 
 ## Red Flags
