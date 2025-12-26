@@ -74,13 +74,16 @@ Create `.harness/{nnn}-{slug}/plan.md`:
 ```markdown
 # Implementation Plan: {Task Name}
 
+<!-- Add this marker when user approves: -->
+<!-- APPROVED -->
+
 ## Overview
 {Brief summary of the plan}
 
 ## Pre-Implementation Checklist
 - [ ] requirements.md reviewed
 - [ ] design.md approved
-- [ ] User approval of plan
+- [ ] User approval of plan (adds <!-- APPROVED --> marker)
 
 ---
 
@@ -143,6 +146,14 @@ Before proceeding to Execute:
 - Confirm all sections of design.md
 - Confirm all steps in plan.md
 - Address any concerns
+
+**When user approves, add the approval marker to plan.md:**
+```markdown
+<!-- APPROVED -->
+```
+
+This marker is REQUIRED - the Execute phase will be blocked without it.
+The gate enforces that no code changes can be made until the plan is approved.
 
 ### 7. Offer Transition
 

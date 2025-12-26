@@ -99,6 +99,18 @@ For trivial tasks (typo fixes, one-line changes, config tweaks):
 - Proceed directly to Execute after confirmation
 - Suggest: "This seems straightforward enough to skip the full workflow. Want to just do it?"
 
+**To enable lightweight mode (bypasses Edit/Write gates):**
+```bash
+mkdir -p .harness && touch .harness/.lightweight
+```
+
+**Clean up after trivial task is done:**
+```bash
+rm .harness/.lightweight
+```
+
+The `.lightweight` marker allows code edits without an approved plan. Use sparingly.
+
 ## Returning to Define
 
 You may return to this phase from later phases when:

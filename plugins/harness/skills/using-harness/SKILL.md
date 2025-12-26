@@ -151,6 +151,20 @@ At session start:
     └── spike-findings.md    # Spike learnings
 ```
 
+## Hook-Based Gates (Enforced)
+
+The workflow is enforced by hooks that BLOCK operations if prerequisites aren't met:
+
+| Gate | Blocks | Unless |
+|------|--------|--------|
+| **Edit/Write** | Any code modification | `plan.md` has `<!-- APPROVED -->`, OR file is in `.harness/`, OR `.harness/.lightweight` exists |
+| **Research** | `harness:researching` | `requirements.md` exists |
+| **Plan** | `harness:planning` | `codebase.md` or `research.md` exists |
+| **Execute** | `harness:executing` | `plan.md` has `<!-- APPROVED -->` |
+| **Verify** | `harness:verifying` | Plan has completed steps |
+
+**These are hard blocks** - you cannot rationalize around them. The system will reject the operation.
+
 ## Key Principles
 
 - **Socratic method** - Guide through questions, don't dictate

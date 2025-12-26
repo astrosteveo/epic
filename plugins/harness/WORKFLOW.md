@@ -57,6 +57,22 @@ A simple workflow for using Claude Code effectively.
 - Use TodoWrite to track progress on multi-step tasks
 - Make incremental changes and verify as you go
 
+### Hook-Based Gates (Enforced)
+
+The workflow is enforced by `PreToolUse` and `PreSkillUse` hooks that BLOCK operations if prerequisites aren't met:
+
+| Gate | Blocks | Unless |
+|------|--------|--------|
+| **Edit/Write** | Any code modification | `plan.md` has `<!-- APPROVED -->`, OR file is in `.harness/`, OR `.harness/.lightweight` exists |
+| **Research** | `/research` command | `requirements.md` exists in active task |
+| **Plan** | `/plan` command | `codebase.md` or `research.md` exists |
+| **Execute** | `/execute` command | `plan.md` has `<!-- APPROVED -->` marker |
+| **Verify** | `/verify` command | Plan has completed steps |
+
+**Approval Marker:** When user approves a plan, add `<!-- APPROVED -->` to `plan.md`.
+
+**Lightweight Bypass:** For trivial tasks, create `.harness/.lightweight` to bypass Edit/Write gates.
+
 ### Workflow Triggers
 
 When should each phase kick in?
