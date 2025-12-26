@@ -1,6 +1,6 @@
 ---
 name: using-harness
-description: Use when starting any conversation - establishes the harness workflow and requires skill invocation BEFORE any response including clarifying questions
+description: "Orchestrates the harness workflow (Define → Research → Plan → Execute → Verify). Loaded at session start - intercepts all task-related messages and routes to appropriate phase skill before any response."
 ---
 
 <EXTREMELY-IMPORTANT>

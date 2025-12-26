@@ -1,6 +1,6 @@
 ---
 name: executing
-description: "Use when plan.md is approved - you MUST follow the plan step-by-step with TDD by default, updating progress as you go. No improvising beyond the approved plan."
+description: "Implements changes following the approved plan with TDD by default. Use after plan.md is approved - follows plan step-by-step, tracks progress, commits atomically. No improvising beyond the approved plan."
 ---
 
 # Executing Phase

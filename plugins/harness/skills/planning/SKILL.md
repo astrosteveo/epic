@@ -1,6 +1,6 @@
 ---
 name: planning
-description: "Use when user has approved a research approach - you MUST create design.md and plan.md through Socratic dialogue BEFORE any code is written."
+description: "Creates architecture design and implementation plan through Socratic dialogue. Use after user approves a research approach - produces design.md and plan.md before any code is written."
 ---
 
 # Planning Phase
