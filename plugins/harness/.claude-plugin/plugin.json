@@ -1,9 +1,0 @@
-{
-  "name": "harness",
-  "description": "A 5-phase workflow for Claude Code: Define → Research → Plan → Execute → Verify",
-  "author": {
-    "name": "astrosteveo"
-  },
-  "license": "MIT",
-  "keywords": ["workflow", "tdd", "planning", "socratic"]
-}
