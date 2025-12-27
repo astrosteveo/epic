@@ -17,7 +17,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/gate-edit.sh\" \"$TOOL_INPUT_FILE_PATH\""
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/gate-edit.sh\""
           }
         ]
       },
@@ -26,7 +26,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/gate-edit.sh\" \"$TOOL_INPUT_FILE_PATH\""
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/gate-edit.sh\""
           }
         ]
       },
