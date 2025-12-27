@@ -14,6 +14,21 @@ Informed discovery with clear direction. Gather technical context before plannin
 - To research best practices, APIs, or external documentation
 - Returning to gather more information after planning reveals gaps
 
+## CRITICAL: Verify, Don't Assume
+
+**Before stating ANY technical fact, version number, or best practice - STOP and verify it.**
+
+Common assumption traps:
+- ❌ "Bevy 0.15 is the latest..." → ✅ Search "Bevy latest version 2025" first
+- ❌ "React 18 introduced..." → ✅ Verify React version history first
+- ❌ "The standard way to do X is..." → ✅ Research current best practices first
+- ❌ "This library is still maintained..." → ✅ Check repo activity/docs first
+- ❌ "Python 3.12 supports..." → ✅ Verify language version features first
+
+**If you catch yourself about to state a version, feature, or technical claim - pause and research it.**
+
+Your training data has a cutoff date. Technology changes. **Always verify current state.**
+
 ## The Process
 
 ### 1. Read Requirements
@@ -139,6 +154,7 @@ When user approves an approach:
 
 ## Key Principles
 
+- **Verify, never assume** - Check version numbers, APIs, best practices - your training data is dated
 - **Facts, not opinions** - codebase.md is unopinionated observations
 - **Use AskUserQuestion** - Better UX for presenting implementation approaches
 - **Be thorough** - Present as many viable approaches as appropriate
