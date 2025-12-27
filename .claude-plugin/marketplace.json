@@ -15,16 +15,6 @@
       "source": "./plugins/harness",
       "category": "development",
       "homepage": "https://github.com/astrosteveo/claude-code-plugins"
-    },
-    {
-      "name": "plugin-builder",
-      "description": "Scaffold Claude Code components (skills, agents, commands, hooks) through natural language. Generate domain-specific, educational examples in seconds.",
-      "author": {
-        "name": "astrosteveo"
-      },
-      "source": "./plugins/plugin-builder",
-      "category": "development",
-      "homepage": "https://github.com/astrosteveo/claude-code-plugins"
     }
   ]
 }
