@@ -6,28 +6,6 @@
   },
   "plugins": [
     {
-      "name": "agent-workflow",
-      "description": "A rigorous, systematic development workflow for coding agents. Enforces discovery, planning, TDD, and review phases to keep agents on track.",
-      "author": {
-        "name": "Jesse Vincent (original author), Steven Mosley",
-        "email": "jesse@fsck.com, stevengmjr@gmail.com"
-      },
-      "source": "./plugins/agent-workflow",
-      "category": "development",
-      "homepage": "https://github.com/astrosteveo/claude-code-plugins"
-    },
-    {
-      "name": "explore-plan-implement-commit",
-      "description": "Adaptive development workflow for all skill levels. Guides users from brainstorming through exploration, design, planning, implementation, and commit.",
-      "author": {
-        "name": "Steven Mosley",
-        "email": "stevengmjr@gmail.com"
-      },
-      "source": "./plugins/explore-plan-implement-commit",
-      "category": "development",
-      "homepage": "https://github.com/astrosteveo/claude-code-plugins"
-    },
-    {
       "name": "harness",
       "description": "Structured development workflow with socratic discovery, dynamic design/planning, TDD implementation, and verified delivery. Guides projects from idea to PR with full Git audit trail.",
       "author": {
