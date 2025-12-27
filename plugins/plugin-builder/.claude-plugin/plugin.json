@@ -1,0 +1,9 @@
+{
+  "name": "plugin-builder",
+  "description": "Scaffold Claude Code components (skills, agents, commands, hooks) through natural language",
+  "author": {
+    "name": "astrosteveo"
+  },
+  "license": "MIT",
+  "keywords": ["scaffolding", "generator", "templates", "development"]
+}
