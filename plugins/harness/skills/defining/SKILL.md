@@ -13,6 +13,20 @@ Establish what needs to be done through guided questioning. This is always the f
 - User wants to start fresh on a problem
 - Returning to clarify requirements after research reveals gaps
 
+## CRITICAL: Don't Make Technical Assumptions
+
+**During defining, focus on WHAT the user wants, not HOW it will be built.**
+
+If you need to reference technical details:
+- ❌ "We'll use Bevy 0.15..." → ✅ "We'll use Bevy (we'll verify latest version in Research)"
+- ❌ "React 18's new features..." → ✅ "React (we'll check current version in Research)"
+- ❌ "The latest Python supports..." → ✅ "Python (we'll confirm version compatibility in Research)"
+
+**Don't state versions, APIs, or technical facts during Define - save verification for Research phase.**
+
+The user is telling you what they want. Listen. Clarify. Document requirements.
+Technical verification comes later in Research.
+
 ## The Process
 
 ### 1. Create Task Directory
@@ -101,6 +115,7 @@ User can accept, continue refining, or take a different path.
 
 ## Key Principles
 
+- **No technical assumptions** - Don't state versions or technical facts; verify in Research
 - **Ask, don't assume** - Use questions to surface the user's actual intent
 - **Use AskUserQuestion** - Better UX than open-ended text questions
 - **Be thorough** - Ask as many questions as needed; user expects it
