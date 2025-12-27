@@ -95,13 +95,26 @@ Create two artifacts in the task directory:
 
 ### 5. Present Approaches
 
-After research, present implementation approaches:
+After research, present implementation approaches.
 
-- Offer as few or as many approaches as appropriate
-- Mark one as **Recommended** with clear reasoning
-- For each approach, note trade-offs (complexity, risk, flexibility)
+**CRITICAL: How to Present Approaches**
+- **Use the AskUserQuestion tool** - Provides better UX than text-only presentation
+- **Provide 1-4 implementation approaches** - As few or as many as appropriate
+- **First option is your recommendation** - Mark with "(Recommended)" in the label
+- **Include trade-offs in descriptions** - Complexity, risk, flexibility, etc.
+- **Be thorough but concise** - Each description should be clear and complete
 
-Format:
+**Example using AskUserQuestion:**
+```
+Question: "Based on my research, which implementation approach should we use?"
+Options:
+  1. "API-based approach (Recommended)" - Uses existing REST endpoints, lower risk, easier to test
+  2. "Direct database access" - More performant but bypasses business logic layer
+  3. "Event-driven approach" - Most flexible but adds complexity with message queues
+  4. "Hybrid approach" - Combines API and events, balanced but requires both infrastructures
+```
+
+**Alternative: Text-based presentation if AskUserQuestion isn't suitable:**
 ```markdown
 ## Approach 1: {Name} (Recommended)
 {Description and why it's recommended}
@@ -127,6 +140,8 @@ When user approves an approach:
 ## Key Principles
 
 - **Facts, not opinions** - codebase.md is unopinionated observations
+- **Use AskUserQuestion** - Better UX for presenting implementation approaches
+- **Be thorough** - Present as many viable approaches as appropriate
 - **Trace to source** - Include commit hashes, file:line references
 - **TDD awareness** - Always identify how to test the implementation
 - **Parallel research** - Use subagents for independent research tasks when appropriate

@@ -22,27 +22,5 @@ if [[ -n "$APPROVED_PLAN" ]]; then
 fi
 
 # Block with message
-echo "BLOCKED: No approved plan found."
-echo ""
-echo "The harness workflow requires an approved plan before modifying code."
-echo ""
-echo "Current state:"
-if [[ -d ".harness" ]]; then
-    LATEST_TASK=$(ls -d .harness/[0-9]* 2>/dev/null | tail -1)
-    if [[ -n "$LATEST_TASK" ]]; then
-        echo "  Active task: $LATEST_TASK"
-        [[ -f "$LATEST_TASK/requirements.md" ]] && echo "  ✓ requirements.md exists" || echo "  ✗ requirements.md missing - run /define"
-        [[ -f "$LATEST_TASK/codebase.md" || -f "$LATEST_TASK/research.md" ]] && echo "  ✓ research artifacts exist" || echo "  ✗ research artifacts missing - run /research"
-        [[ -f "$LATEST_TASK/plan.md" ]] && echo "  ✓ plan.md exists (needs approval)" || echo "  ✗ plan.md missing - run /plan"
-        if [[ -f "$LATEST_TASK/plan.md" ]]; then
-            grep -q "<!-- APPROVED -->" "$LATEST_TASK/plan.md" && echo "  ✓ plan approved" || echo "  ✗ plan not approved - add <!-- APPROVED --> marker"
-        fi
-    else
-        echo "  No task directory found - run /define to start"
-    fi
-else
-    echo "  No .harness directory - run /define to start"
-fi
-echo ""
-echo "To bypass for trivial tasks: touch .harness/.lightweight"
-exit 1
+echo "BLOCKED: No approved plan found. The harness workflow requires an approved plan before modifying code. Run /harness:define → /harness:research → /harness:plan and get approval, or use 'touch .harness/.lightweight' for trivial tasks." >&2
+exit 2

@@ -29,42 +29,13 @@
             "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/gate-edit.sh\" \"$TOOL_INPUT_FILE_PATH\""
           }
         ]
-      }
-    ],
-    "PreSkillUse": [
-      {
-        "matcher": "harness:researching",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/gate-research.sh\""
-          }
-        ]
       },
       {
-        "matcher": "harness:planning",
+        "matcher": "Skill",
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/gate-plan.sh\""
-          }
-        ]
-      },
-      {
-        "matcher": "harness:executing",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/gate-execute.sh\""
-          }
-        ]
-      },
-      {
-        "matcher": "harness:verifying",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/gate-verify.sh\""
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/gate-skill.sh\""
           }
         ]
       }

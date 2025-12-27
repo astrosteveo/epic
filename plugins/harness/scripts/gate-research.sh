@@ -6,18 +6,13 @@
 LATEST_TASK=$(ls -d .harness/[0-9]* 2>/dev/null | tail -1)
 
 if [[ -z "$LATEST_TASK" ]]; then
-    echo "BLOCKED: No task directory found."
-    echo ""
-    echo "Run /define first to establish requirements before researching."
-    exit 1
+    echo "BLOCKED: No task directory found. Run /harness:define first to establish requirements before researching." >&2
+    exit 2
 fi
 
 if [[ -f "$LATEST_TASK/requirements.md" ]]; then
     exit 0
 fi
 
-echo "BLOCKED: requirements.md not found in $LATEST_TASK"
-echo ""
-echo "The Research phase requires defined requirements."
-echo "Run /define first to establish what we're building."
-exit 1
+echo "BLOCKED: requirements.md not found in $LATEST_TASK. The Research phase requires defined requirements. Run /harness:define first." >&2
+exit 2

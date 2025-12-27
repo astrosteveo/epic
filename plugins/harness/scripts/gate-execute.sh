@@ -11,29 +11,18 @@ fi
 LATEST_TASK=$(ls -d .harness/[0-9]* 2>/dev/null | tail -1)
 
 if [[ -z "$LATEST_TASK" ]]; then
-    echo "BLOCKED: No task directory found."
-    echo ""
-    echo "Run /define → /research → /plan before executing."
-    exit 1
+    echo "BLOCKED: No task directory found. Run /harness:define → /harness:research → /harness:plan before executing." >&2
+    exit 2
 fi
 
 if [[ ! -f "$LATEST_TASK/plan.md" ]]; then
-    echo "BLOCKED: plan.md not found in $LATEST_TASK"
-    echo ""
-    echo "Run /plan first to create an implementation plan."
-    exit 1
+    echo "BLOCKED: plan.md not found in $LATEST_TASK. Run /harness:plan first to create an implementation plan." >&2
+    exit 2
 fi
 
 if grep -q "<!-- APPROVED -->" "$LATEST_TASK/plan.md"; then
     exit 0
 fi
 
-echo "BLOCKED: Plan not approved in $LATEST_TASK/plan.md"
-echo ""
-echo "The Execute phase requires user approval of the plan."
-echo ""
-echo "To approve, add this marker to plan.md:"
-echo "  <!-- APPROVED -->"
-echo ""
-echo "Or have the user confirm: \"I approve this plan\""
-exit 1
+echo "BLOCKED: Plan not approved in $LATEST_TASK/plan.md. The Execute phase requires user approval. Add <!-- APPROVED --> marker to plan.md or confirm approval." >&2
+exit 2

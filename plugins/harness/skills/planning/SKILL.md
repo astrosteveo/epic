@@ -24,11 +24,24 @@ Start by reading:
 
 ### 2. Design Architecture (design.md)
 
-Create the high-level design through dialogue:
+Create the high-level design through dialogue.
 
-**Section by Section**
-- Present each section and ask: "Does this sound right to you?"
-- Iterate based on feedback before moving to next section
+**CRITICAL: How to Collaborate on Design**
+- **Use the AskUserQuestion tool** - Better UX for confirmations and choices
+- **Present one section at a time** - Don't overwhelm with the entire design
+- **Provide 1-4 design options when applicable** - First option is your recommendation
+- **Ask for confirmation** - "Does this approach look right to you?"
+- **Be thorough** - Ask as many clarifying questions as needed
+- **Iterate before moving on** - Get agreement on each section before the next
+
+**Example using AskUserQuestion for design confirmation:**
+```
+Question: "For the data flow, should we use a synchronous or asynchronous approach?"
+Options:
+  1. "Synchronous API calls (Recommended)" - Simpler, easier to debug, sufficient for current scale
+  2. "Asynchronous with message queue" - More scalable but adds operational complexity
+  3. "Hybrid approach" - Sync for user-facing, async for background tasks
+```
 
 **Content to Cover**
 - Component relationships and data flow
@@ -147,6 +160,15 @@ Before proceeding to Execute:
 - Confirm all steps in plan.md
 - Address any concerns
 
+**Use AskUserQuestion to get final approval:**
+```
+Question: "The plan is complete. Should we proceed to execution?"
+Options:
+  1. "Yes, proceed with execution (Recommended)" - Plan looks good, ready to implement
+  2. "Revise the plan first" - Need to make changes before starting
+  3. "Show me the plan summary again" - Want to review once more
+```
+
 **When user approves, add the approval marker to plan.md:**
 ```markdown
 <!-- APPROVED -->
@@ -164,6 +186,8 @@ When plan is approved:
 ## Key Principles
 
 - **Section-by-section** - Don't dump a complete plan; iterate collaboratively
+- **Use AskUserQuestion** - Better UX for all confirmations and choices
+- **Be thorough** - Ask as many clarifying questions as needed; user expects it
 - **Scope control** - Break large steps into smaller ones
 - **Defer wisely** - Keep the task focused; backlog captures the rest
 - **Commit atomically** - Each step should be a logical unit

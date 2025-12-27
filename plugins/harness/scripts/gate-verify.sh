@@ -6,17 +6,13 @@
 LATEST_TASK=$(ls -d .harness/[0-9]* 2>/dev/null | tail -1)
 
 if [[ -z "$LATEST_TASK" ]]; then
-    echo "BLOCKED: No task directory found."
-    echo ""
-    echo "Nothing to verify - no task in progress."
-    exit 1
+    echo "BLOCKED: No task directory found. Nothing to verify - no task in progress." >&2
+    exit 2
 fi
 
 if [[ ! -f "$LATEST_TASK/plan.md" ]]; then
-    echo "BLOCKED: No plan.md found in $LATEST_TASK"
-    echo ""
-    echo "Run /plan and /execute before verifying."
-    exit 1
+    echo "BLOCKED: No plan.md found in $LATEST_TASK. Run /harness:plan and /harness:execute before verifying." >&2
+    exit 2
 fi
 
 # Check if any steps are marked complete
@@ -30,8 +26,5 @@ if [[ -n "$RECENT_COMMITS" ]]; then
     exit 0
 fi
 
-echo "BLOCKED: No execution progress found"
-echo ""
-echo "The Verify phase validates completed work."
-echo "Run /execute first to implement the plan."
-exit 1
+echo "BLOCKED: No execution progress found. The Verify phase validates completed work. Run /harness:execute first to implement the plan." >&2
+exit 2

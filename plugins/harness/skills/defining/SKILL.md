@@ -31,7 +31,24 @@ Check existing `.harness/` directories to determine the next number.
 
 ### 2. Socratic Dialogue
 
-Guide the user through these levels, asking questions at each stage:
+Guide the user through these levels, asking questions at each stage.
+
+**CRITICAL: How to Ask Questions**
+- **Use the AskUserQuestion tool** - This provides a better UX than open-ended text questions
+- **Provide 1-4 answer choices** - First option should be your recommendation
+- **Ask as many questions as needed** - The user expects thoroughness
+- **One question at a time** - Don't overwhelm with multiple questions at once
+- **Mark your recommendation** - Add "(Recommended)" to the first option if appropriate
+
+**Example using AskUserQuestion:**
+```
+Question: "What's the primary goal of this feature?"
+Options:
+  1. "Improve user experience" (Recommended) - Focus on UX improvements
+  2. "Add new functionality" - Net new capability
+  3. "Fix existing issues" - Bug fixes and corrections
+  4. "Performance optimization" - Speed and efficiency gains
+```
 
 **Vision (Broad)**
 - "What problem are we trying to solve?"
@@ -85,6 +102,8 @@ User can accept, continue refining, or take a different path.
 ## Key Principles
 
 - **Ask, don't assume** - Use questions to surface the user's actual intent
+- **Use AskUserQuestion** - Better UX than open-ended text questions
+- **Be thorough** - Ask as many questions as needed; user expects it
 - **Narrow progressively** - Start broad, then get specific
 - **Confirm understanding** - Reflect back what you heard before documenting
 - **Stay flexible** - Requirements may evolve; that's normal
