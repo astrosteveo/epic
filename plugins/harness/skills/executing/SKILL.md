@@ -24,7 +24,60 @@ Start by reading:
 
 Check for any "Completed through step X" markers if resuming.
 
-### 2. Follow TDD by Default
+### 2. Dispatch Subagents for Implementation
+
+**Use subagents to execute plan steps efficiently:**
+
+**Identify Parallelizable Steps**
+- Review plan.md and identify independent steps (no dependencies between them)
+- Steps that can run in parallel: touching different files, independent features
+- Steps that must be sequential: build on each other's code, shared files
+
+**Dispatch Strategy**
+- **Sequential dependencies**: Use Task tool, wait for completion, then next step
+- **Independent steps**: Dispatch multiple Task tools in parallel (single message, multiple tool calls)
+- **Background execution**: Use `run_in_background=true` for long-running steps
+
+**Subagent Prompt Format**
+Each subagent receives:
+```
+You are implementing Step {nnn}-{X} from an approved plan.
+
+Context:
+- Read .harness/{nnn}-{slug}/requirements.md for success criteria
+- Read .harness/{nnn}-{slug}/design.md for architecture
+- This step is part of a larger plan
+
+Your Task:
+{Full step details from plan.md including:
+ - Files to create/modify
+ - Implementation details
+ - TDD approach (write test first)
+ - Commit message to use}
+
+Follow TDD:
+1. Write failing test first
+2. Implement minimal code to pass
+3. Commit with: "{commit message from plan}"
+
+Mark step complete in plan.md when done.
+```
+
+**Example: Parallel Dispatch**
+```
+Steps 3, 4, 5 are independent (different files, no shared state)
+→ Dispatch all 3 in parallel using single message with 3 Task tool calls
+→ Monitor progress, handle any failures
+```
+
+**Example: Sequential Execution**
+```
+Step 6 depends on Step 5's output
+→ Wait for Step 5 completion
+→ Then dispatch Step 6
+```
+
+### 3. Follow TDD by Default
 
 For each step:
 
@@ -116,6 +169,7 @@ When all steps are complete:
 
 ## Key Principles
 
+- **Dispatch subagents** - Use Task tool to parallelize independent steps
 - **TDD first** - Tests define behavior before implementation
 - **Follow the plan** - Don't improvise beyond what's approved
 - **Fail fast** - Stop at issues, don't compound them

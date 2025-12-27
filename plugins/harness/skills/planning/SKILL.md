@@ -73,15 +73,27 @@ Create `.harness/{nnn}-{slug}/design.md`:
 
 Create the granular implementation plan:
 
+**CRITICAL: Steps Must Be Subagent-Ready**
+
+Each step will be dispatched to a subagent for execution. Steps must be:
+- **Self-contained**: All context needed is in the step
+- **Specific**: Exact files, exact changes, exact tests
+- **TDD-ready**: What test to write, what behavior it validates
+- **Commit-ready**: Specific commit message provided
+
 **Step Sizing**
 - Each step = 1-3 logical commits worth of work
 - If a step grows too large, break it into multiple steps
 - Steps should be independently verifiable
+- Mark dependencies so parallel dispatch knows what can run simultaneously
 
-**Step Format**
+**Step Format (Required Detail Level)**
 - Task-prefixed IDs: `{nnn}-1`, `{nnn}-2`, etc.
-- Specific files to create/modify
-- Clear commit message for each step
+- **Dependencies**: "Depends on: {nnn}-X" or "Independent"
+- **Files to create/modify**: Full paths
+- **Implementation details**: Specific code structures, function signatures, data structures
+- **TDD guidance**: What test to write first, what it should verify
+- **Clear commit message**: Using conventional commits format
 
 Create `.harness/{nnn}-{slug}/plan.md`:
 ```markdown
@@ -102,24 +114,44 @@ Create `.harness/{nnn}-{slug}/plan.md`:
 
 ## Step {nnn}-1: {Description}
 
+**Dependencies:** Independent (or "Depends on: {nnn}-X")
+
 **Files to create/modify:**
 - `path/to/file.ext`
 
-**Details:**
-{What to implement}
+**TDD Approach:**
+1. Write test: `tests/test_file.ext::test_behavior`
+2. Test should verify: {specific behavior}
+3. Then implement: {specific code structure}
 
-**Commit message:** `{type}: {description}`
+**Details:**
+{What to implement - be specific about:
+ - Function signatures
+ - Data structures
+ - Algorithm approach
+ - Edge cases to handle}
+
+**Commit message:** `{type}({scope}): {description}`
 
 ---
 
 ## Step {nnn}-2: {Description}
+
+**Dependencies:** Depends on: {nnn}-1
+
 ...
 
 ---
 
 ## Summary
-| Step | Description | Files |
-|------|-------------|-------|
+| Step | Description | Dependencies | Files |
+|------|-------------|--------------|-------|
+| {nnn}-1 | {Description} | Independent | {files} |
+| {nnn}-2 | {Description} | Depends on {nnn}-1 | {files} |
+
+## Parallelization Opportunities
+- Steps {nnn}-3, {nnn}-4, {nnn}-5 can run in parallel (independent, different files)
+- Step {nnn}-6 waits for {nnn}-5 completion
 
 ## Deferred Items
 {Items moved to backlog.md}
