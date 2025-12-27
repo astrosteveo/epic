@@ -114,13 +114,27 @@ Examples:
 
 ## Phase Overview
 
-| Phase | Skill | Purpose | Produces |
-|-------|-------|---------|----------|
-| **Define** | `harness:defining` | Establish requirements through Socratic dialogue | `requirements.md` |
-| **Research** | `harness:researching` | Explore codebase and best practices | `codebase.md`, `research.md` |
-| **Plan** | `harness:planning` | Collaborative design with user approval | `design.md`, `plan.md` |
-| **Execute** | `harness:executing` | TDD implementation following the plan | Code + tests |
-| **Verify** | `harness:verifying` | Rigorous validation before completion | Passing tests + user satisfaction |
+| Phase | Skill | Purpose | Produces | Subagent Usage |
+|-------|-------|---------|----------|----------------|
+| **Define** | `harness:defining` | Establish requirements through Socratic dialogue | `requirements.md` | Main agent dispatches subagent for requirements gathering |
+| **Research** | `harness:researching` | Explore codebase and best practices | `codebase.md`, `research.md` | Main agent dispatches subagent for exploration |
+| **Plan** | `harness:planning` | Collaborative design with user approval | `design.md`, `plan.md` | Main agent dispatches subagent for design and planning |
+| **Execute** | `harness:executing` | TDD implementation following the plan | Code + tests | Main agent dispatches subagent for baseline review, then subagents for each implementation step (parallel when possible) |
+| **Verify** | `harness:verifying` | Rigorous validation before completion | Passing tests + user satisfaction | Main agent dispatches verifier subagent for validation |
+
+## Subagent Orchestration Pattern
+
+**Each phase skill uses subagents to keep main context low:**
+
+1. **Main agent** - Reads the skill, understands phase requirements, dispatches subagent
+2. **Subagent** - Does the detailed work (gathering requirements, exploring code, designing, implementing, verifying)
+3. **Main agent** - Reviews subagent output, coordinates next phase
+
+**Benefits:**
+- Main context stays minimal (orchestration only)
+- Subagents have focused context for their specific work
+- Parallel execution possible (especially during Execute phase)
+- Each phase can be deep and thorough without context bloat
 
 ## Slash Commands
 

@@ -27,6 +27,14 @@ If you need to reference technical details:
 The user is telling you what they want. Listen. Clarify. Document requirements.
 Technical verification comes later in Research.
 
+## Subagent Dispatch
+
+**IMPORTANT: Use a subagent to perform the defining work.**
+
+Dispatch the Task tool with `subagent_type="general-purpose"` to handle the requirements gathering. This keeps main context low while the subagent conducts Socratic dialogue with the user.
+
+The subagent should follow the process below.
+
 ## The Process
 
 ### 1. Create Task Directory

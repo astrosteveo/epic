@@ -13,6 +13,14 @@ Collaborative design through Socratic dialogue. Iterate until full agreement on 
 - For any non-trivial implementation (3+ steps or multiple files)
 - Returning to revise the plan after execution reveals issues
 
+## Subagent Dispatch
+
+**IMPORTANT: Use a subagent to perform the planning work.**
+
+Dispatch the Task tool with `subagent_type="general-purpose"` to handle the planning phase work. This keeps main context low while the subagent does the detailed design and planning.
+
+The subagent should follow the process below.
+
 ## The Process
 
 ### 1. Read Prior Artifacts
@@ -22,7 +30,29 @@ Start by reading:
 - `codebase.md` - Technical context and patterns
 - `research.md` - Best practices and the approved approach
 
-### 2. Design Architecture (design.md)
+### 2. Clarify Ambiguities (Socratic Discovery)
+
+**CRITICAL: Even if only 1% uncertain, ask for clarification.**
+
+After reading the artifacts, go through Socratic discovery one more time to eliminate any ambiguity:
+
+- **Review requirements** - Any unclear acceptance criteria? Any edge cases not covered?
+- **Review research approach** - Is the chosen approach fully understood? Any implementation details unclear?
+- **Check assumptions** - Are there any technical assumptions that need validation?
+- **Scope boundaries** - Is it crystal clear what's in scope vs out of scope?
+
+**Use AskUserQuestion for any clarification:**
+```
+Question: "Before I design the architecture, I want to clarify: {specific ambiguity}?"
+Options:
+  1. "{Your recommended interpretation} (Recommended)" - {Why this makes sense}
+  2. "{Alternative interpretation}" - {Trade-offs}
+  3. "{Another alternative}" - {Trade-offs}
+```
+
+This extra round of clarification ensures the plan and design are maximally detailed and precise.
+
+### 3. Design Architecture (design.md)
 
 Create the high-level design through dialogue.
 

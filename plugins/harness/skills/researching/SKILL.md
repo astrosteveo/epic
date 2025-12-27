@@ -29,6 +29,14 @@ Common assumption traps:
 
 Your training data has a cutoff date. Technology changes. **Always verify current state.**
 
+## Subagent Dispatch
+
+**IMPORTANT: Use a subagent to perform the research work.**
+
+Dispatch the Task tool with `subagent_type="general-purpose"` to handle the codebase exploration and external research. This keeps main context low while the subagent does detailed investigation.
+
+The subagent should follow the process below.
+
 ## The Process
 
 ### 1. Read Requirements

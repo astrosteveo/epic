@@ -13,6 +13,17 @@ Implement the changes following the approved plan. TDD by default.
 - For simple, well-defined tasks that skip planning
 - Returning to continue implementation after interruption
 
+## Subagent Dispatch
+
+**IMPORTANT: Use subagents for all execution work.**
+
+The main agent orchestrates execution by dispatching subagents for:
+1. **Baseline review** - Understanding current state before changes
+2. **Each implementation step** - Following the detailed plan
+3. **Parallel execution** - Independent steps run simultaneously
+
+This keeps main context low while subagents do the implementation work.
+
 ## The Process
 
 ### 1. Read the Plan
@@ -24,7 +35,30 @@ Start by reading:
 
 Check for any "Completed through step X" markers if resuming.
 
-### 2. Dispatch Subagents for Implementation
+### 2. Baseline Review
+
+**Before making any changes, dispatch a subagent to review current state:**
+
+```
+You are reviewing the current codebase state before implementing changes.
+
+Context:
+- Read .harness/{nnn}-{slug}/requirements.md for what we're building
+- Read .harness/{nnn}-{slug}/design.md for the planned architecture
+- Read .harness/{nnn}-{slug}/plan.md for the implementation steps
+
+Your Task:
+1. Review the files listed in the plan that will be modified
+2. Document the current state: existing patterns, dependencies, test coverage
+3. Identify any potential conflicts or integration points
+4. Create a baseline understanding that will inform implementation
+
+Produce a brief summary of current state and any concerns.
+```
+
+This baseline helps subagents implementing steps understand what they're working with.
+
+### 3. Dispatch Subagents for Implementation
 
 **Use subagents to execute plan steps efficiently:**
 
@@ -39,29 +73,45 @@ Check for any "Completed through step X" markers if resuming.
 - **Background execution**: Use `run_in_background=true` for long-running steps
 
 **Subagent Prompt Format**
-Each subagent receives:
+Each subagent receives the exact implementation details from the plan:
 ```
 You are implementing Step {nnn}-{X} from an approved plan.
 
 Context:
 - Read .harness/{nnn}-{slug}/requirements.md for success criteria
 - Read .harness/{nnn}-{slug}/design.md for architecture
+- Read .harness/{nnn}-{slug}/plan.md Step {nnn}-{X} for full details
 - This step is part of a larger plan
 
-Your Task:
-{Full step details from plan.md including:
- - Files to create/modify
- - Implementation details
- - TDD approach (write test first)
- - Commit message to use}
+Your Task (from plan.md Step {nnn}-{X}):
+
+**Dependencies:** {from plan}
+
+**Files to create/modify:**
+{exact list from plan}
+
+**TDD Approach:**
+{exact TDD guidance from plan}
+
+**Implementation Details:**
+{exact implementation details from plan - include:
+ - Function signatures
+ - Data structures
+ - Algorithm approach
+ - Edge cases to handle}
+
+**Commit message:** {exact commit message from plan}
 
 Follow TDD:
-1. Write failing test first
-2. Implement minimal code to pass
-3. Commit with: "{commit message from plan}"
+1. Write failing test first (as specified above)
+2. Implement minimal code to pass (as specified above)
+3. Run tests to verify
+4. Commit with the exact message above
 
-Mark step complete in plan.md when done.
+When complete, update plan.md to mark step as ✅ Complete with commit hash.
 ```
+
+**The plan should be detailed enough that you can copy-paste step details directly into the subagent prompt.**
 
 **Example: Parallel Dispatch**
 ```
@@ -77,7 +127,7 @@ Step 6 depends on Step 5's output
 → Then dispatch Step 6
 ```
 
-### 3. Follow TDD by Default
+### 4. Follow TDD by Default
 
 For each step:
 
@@ -95,7 +145,7 @@ For each step:
 7. Commit with the message from plan.md
 8. Update plan.md to mark step complete
 
-### 3. When TDD Isn't Possible
+### 5. When TDD Isn't Possible
 
 Document exceptions and add tests after:
 
@@ -110,7 +160,7 @@ Document exceptions and add tests after:
 - Add tests after implementation when possible
 - Note any untested areas for verification phase
 
-### 4. Track Progress
+### 6. Track Progress
 
 Update `plan.md` as you complete steps:
 ```markdown
@@ -124,7 +174,7 @@ If you need to pause:
 Completed through step {nnn}-3. Next: step {nnn}-4.
 ```
 
-### 5. Handle Issues
+### 7. Handle Issues
 
 **Plan Issue (step doesn't work as written)**
 - Stop execution
@@ -144,7 +194,7 @@ Completed through step {nnn}-3. Next: step {nnn}-4.
 - Revert problematic commits if needed
 - Update plan with what failed
 
-### 6. Incremental Commits
+### 8. Incremental Commits
 
 **Commit Discipline**
 - Each step = 1-3 logical commits
@@ -161,7 +211,7 @@ Completed through step {nnn}-3. Next: step {nnn}-4.
 
 Types: `feat`, `fix`, `refactor`, `test`, `docs`, `chore`
 
-### 7. Offer Transition
+### 9. Offer Transition
 
 When all steps are complete:
 

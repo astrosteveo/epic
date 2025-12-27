@@ -13,6 +13,14 @@ Rigorous validation before completion. This is the peer review gate.
 - After any code changes, before marking complete
 - When user wants to validate current state
 
+## Subagent Dispatch
+
+**IMPORTANT: Use a subagent to perform the verification work.**
+
+Dispatch the Task tool with `subagent_type="harness:verifier"` to handle validation. This keeps main context low while the subagent runs tests, validates requirements, and performs quality checks.
+
+The subagent should follow the process below.
+
 ## The Process
 
 ### 1. Run Full Test Suite
