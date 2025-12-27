@@ -7,6 +7,8 @@ FILE_PATH="$1"
 # Debug: Log what we received (remove after debugging)
 echo "DEBUG gate-edit.sh: FILE_PATH='$FILE_PATH'" >&2
 echo "DEBUG gate-edit.sh: PWD='$(pwd)'" >&2
+echo "DEBUG gate-edit.sh: All TOOL_* vars:" >&2
+env | grep "^TOOL_" >&2 || echo "DEBUG: No TOOL_* environment variables found" >&2
 
 # Allow edits to .harness/ artifacts (always allowed)
 if [[ "$FILE_PATH" == *".harness/"* ]]; then
