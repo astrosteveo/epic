@@ -448,14 +448,134 @@ When generating a hook, create:
    - Tool names for PreToolUse
    - Event names for SessionStart
 
+## Validation and Error Handling
+
+### Input Validation
+
+**Check 1: Component type is recognized**
+```
+Valid types: skill, agent, command, hook
+If unrecognized type extracted:
+  Error: "Unknown component type '{type}'. Valid types: skill, agent, command, hook"
+```
+
+**Check 2: Domain is provided**
+```
+Domain must be extracted from input
+If missing or unclear:
+  Error: "Please specify what the component is for. Example: 'create a skill for code review'"
+```
+
+**Check 3: Component doesn't already exist**
+```
+For skills: Check if .claude/skills/{name}/ exists
+For agents: Check if .claude/agents/{name}.md exists
+For commands: Check if .claude/commands/{name}.md exists
+For hooks: Check if .claude/hooks/{name}.sh exists
+
+If exists:
+  Use AskUserQuestion: "Component '{name}' already exists. Overwrite?"
+  Options:
+    1. "No, cancel (Recommended)" - Keep existing component
+    2. "Yes, overwrite" - Replace with new generated component
+```
+
+### Ambiguity Handling
+
+**Use AskUserQuestion tool when input is ambiguous:**
+
+**Example 1: Unclear type**
+```
+Input: "create something for testing"
+
+Question: "What type of component would you like to create?"
+Options:
+  1. "Skill - Auto-invoked capability (Recommended)"
+  2. "Agent - Specialized subagent"
+  3. "Command - Slash command"
+  4. "Hook - Event handler"
+```
+
+**Example 2: Confirm interpretation**
+```
+Input: "make a code reviewer"
+
+Before generating, confirm:
+Question: "I'll create a skill for code review. Is this correct?"
+Options:
+  1. "Yes, create skill (Recommended)"
+  2. "No, create agent instead"
+  3. "No, create command instead"
+```
+
+### Error Messages
+
+**Clear, actionable error messages:**
+
+❌ **Bad:** "Invalid input"
+✅ **Good:** "Could not determine component type. Please specify: skill, agent, command, or hook"
+
+❌ **Bad:** "Failed"
+✅ **Good:** "Component 'code-review' already exists at .claude/skills/code-review/. Use a different name or confirm overwrite."
+
+### Success Messages
+
+**Confirm what was created with helpful next steps:**
+
+For skills:
+```
+✅ Created skill 'code-quality-review' in .claude/skills/code-quality-review/
+
+Files created:
+- SKILL.md (main skill definition)
+- examples/simple.md (basic approach)
+- examples/advanced.md (intermediate approach)
+- examples/production.md (production-ready approach)
+
+Next steps:
+1. Review and customize the generated skill
+2. Claude will auto-invoke it when relevant
+3. Edit examples/ to match your specific needs
+
+The skill is ready to use immediately!
+```
+
+For agents:
+```
+✅ Created agent 'deployment-automation' in .claude/agents/deployment-automation.md
+
+Usage: @deployment-automation {task description}
+
+The agent specializes in deployment automation.
+```
+
+For commands:
+```
+✅ Created command 'run-tests' in .claude/commands/run-tests.md
+
+Usage: /run-tests
+
+The command is available as a slash command.
+```
+
+For hooks:
+```
+✅ Created hook 'pre-commit-validation' in .claude/hooks/
+
+Files: hooks.json (updated), pre-commit-validation.sh (executable)
+
+The hook will trigger automatically.
+```
+
 ## Key Principles
 
 - **Clear parsing** - Extract type, domain, name accurately
 - **Domain-aware** - Generate content that demonstrates deep understanding of the domain
-- **Fail gracefully** - Provide helpful error messages
-- **Confirm understanding** - List what will be created before writing
+- **Fail gracefully** - Provide helpful error messages with actionable guidance
+- **Confirm understanding** - List what will be created before writing, ask if ambiguous
 - **File safety** - Check if files exist, offer overwrite option
 - **Helpful output** - Show files created, suggest next steps
 - **Template-driven** - Use templates for structure, Claude for domain content
 - **Educational** - Show progression from simple to production-ready
 - **Practical** - Examples should be realistic and immediately useful
+- **Validate early** - Check all prerequisites before writing files
